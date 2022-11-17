@@ -1,6 +1,10 @@
 import Router from "next/router";
+/// Imports
 
+//& Page 2
 export default function Home() {
+
+  //& View
   return (
     <div className={"layout"}>
       <img src="/bg2.png" className="backdrop" alt="bg" />
@@ -41,6 +45,7 @@ export default function Home() {
   )
 }
 
+//$ Dropdown Component
 function DropDown({ name, value }) {
   return (
     <div style={{ marginTop: "2vw", position: "relative", width: "21.875vw", height: "4.06vw", display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-end', }}>
@@ -57,6 +62,7 @@ function DropDown({ name, value }) {
   )
 }
 
+//$ Input Component
 function InputField({ name, value, type }) {
   return (
     <div style={{ marginTop: "2vw", width: "21.875vw", height: "4.06vw", display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-end', }}>
