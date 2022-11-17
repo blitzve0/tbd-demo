@@ -1,0 +1,93 @@
+.page-hero-double {
+  $root: &;
+
+  display: block;
+  flex-direction: column;
+  background: $color-bg;
+  overflow: hidden;
+
+  padding-top: 12.75vw;
+  @include media('<laptop') {
+    padding-top: 34.05vw;
+  }
+  @include media('>=laptop', '<split') {
+    padding-bottom: 4.5vw;
+  }
+  @include media('>=split') {
+    padding-top: 538px;
+    padding-bottom: 172px;
+  }
+
+  //$ Heading Style
+  &-heading {
+    padding-left: 10.9vw;
+    padding-right: 8vw;
+    margin-bottom: 10vw;
+    overflow: hidden;
+    @include media('>=split') {
+      padding-left: 418px;
+      padding-right: 308px;
+      margin-bottom: 384px;
+    }
+
+    &-slideup {
+      &-1 {
+        display: inline-block;
+        @include transformPerspective(1000);
+        @include transformRotateX(-90);
+        @include transformTranslate3D(0, 200%, 0);
+        opacity: 0;
+        font-size: 1.5vw;
+        letter-spacing: -0.075vw;
+        line-height: 165%;
+        @include media('<laptop') {
+          font-size: 3.5vw;
+          letter-spacing: -0.2vw;
+        }
+        @include media('>=split') {
+          font-size: 58px;
+          letter-spacing: -2px;
+        }
+      }
+      &-2 {
+        display: inline-block;
+        @include transformPerspective(1000);
+        @include transformRotateX(-90);
+        @include transformTranslate3D(0, 200%, 0);
+        opacity: 0;
+        font-size: 6vw;
+        letter-spacing: -0.3vw;
+        line-height: 125%;
+        @include media('<laptop') {
+          font-size: 5.9vw;
+          letter-spacing: -0.2vw;
+          margin-bottom: 37vw;
+        }
+        @include media('>=split') {
+          font-size: 230px;
+          letter-spacing: -12px;
+          line-height: 125%;
+        }
+      }
+    }
+  }
+
+  //$ Image Style
+  &-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    @include media('<laptop') {
+      height: 55vh;
+    }
+    @include media('>=split') {
+      max-width: 3840px;
+    }
+    @include transformTranslate3D(0, 50%, 0); //` Before Mounting
+    @include transformScale(1.2); //` Be at this State
+    opacity: 0; //` For Loading Animation
+  }
+}

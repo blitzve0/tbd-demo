@@ -1,0 +1,18 @@
+.mojo {
+  $root: &;
+  display: hidden;
+  visibility: hidden;
+  opacity: 0;
+
+  @include media('<laptop') {
+    display: none;
+  }
+  @include media('>laptop', '<split') {
+    top: -11vw;
+    right: -32vw;
+  }
+  @include media('>=split') {
+    top: -422px;
+    right: -1228px;
+  }
+}

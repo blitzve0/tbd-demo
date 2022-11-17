@@ -1,0 +1,33 @@
+.glide {
+  $root: &;
+
+  position: relative;
+  display: block;
+  width: inherit;
+  height: inherit;
+
+  overflow: hidden;
+
+  background: $color-bg;
+
+  &-content {
+    @include fullSize;
+    @include relativeZero;
+
+    will-change: transform;
+
+    object-fit: cover !important;
+    vertical-align: middle !important;
+
+    @include transformTranslate3D(0, -25%, 0); //` Cross-Browser Translate 3D Property
+
+    border-style: none !important;
+
+    &-video {
+      @include fullSize;
+      @include absoluteZero;
+      object-fit: cover !important;
+      will-change: transform !important;
+    }
+  }
+}

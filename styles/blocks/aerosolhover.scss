@@ -1,0 +1,144 @@
+//& Size Variables
+$ball1: 44vw;
+$ball2: 32vw;
+$ball3: 20vw;
+
+.aerosol-hover {
+  $root: &;
+
+  @include fullHeight;
+  cursor: none;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  // @include media('>=laptop', '<split') {
+  //   margin-top: 4.5vw;
+  // }
+  // @include media('>=split') {
+  //   max-width: 3840px;
+  //   margin-top: 172px;
+  // }
+
+  //$ Container where Hovered Text is Shown
+  &-content {
+    position: relative;
+    @include displayCenter;
+    @include fullSize;
+
+    background: $color-bg;
+    mix-blend-mode: lighten;
+    overflow: hidden;
+    z-index: -20;
+
+    //` Inside Text
+    &-text {
+      position: absolute;
+      text-align: center;
+      color: $color-graybase;
+      font-size: 7.25vw;
+      font-weight: 600;
+      letter-spacing: -0.3vw;
+      opacity: 0;
+
+      @include media('<=tablet') {
+        font-size: 8vw;
+        font-weight: 400;
+      }
+      @include media('>tablet', '<laptop') {
+        font-size: 6.5vw;
+        font-weight: 400;
+      }
+      @include media('>=laptop', '<split') {
+        line-height: 125%;
+      }
+      @include media('>=split') {
+        font-size: 278px;
+        letter-spacing: -11.5px;
+      }
+    }
+  }
+
+  //$ Overlay Balls container
+  &-balls {
+    position: relative;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+
+    @include media('<laptop') {
+      display: none;
+    }
+
+    //` Balls Common Property
+    .balls {
+      position: absolute;
+      border-radius: 50%;
+      will-change: transform;
+    }
+    //` Largest Ball
+    .ball-1 {
+      width: $ball1;
+      height: $ball1;
+      background: #4945dc;
+      margin: calc(#{$ball1}/ -2) 0 0 calc(#{$ball1}/ -2);
+      z-index: -50;
+      @include media('<laptop') {
+        width: 70vw;
+        height: 70vw;
+        margin: -35vw 0 0 -35vw;
+      }
+      @include media('>=split') {
+        width: 1920px;
+        height: 1920px;
+        margin: -960px 0 0 -960px;
+      }
+    }
+    //` Medium Ball
+    .ball-2 {
+      width: $ball2;
+      height: $ball2;
+      background: #e489bf;
+      margin: calc(#{$ball2}/ -2) 0 0 calc(#{$ball2}/ -2);
+      z-index: -40;
+      @include media('<laptop') {
+        width: 45vw;
+        height: 45vw;
+        margin: -22.5vw 0 0 -22.5vw;
+      }
+      @include media('>=split') {
+        width: 1344px;
+        height: 1344px;
+        margin: -762px 0 0 -762px;
+      }
+    }
+    //` Small Ball
+    .ball-3 {
+      width: $ball3;
+      height: $ball3;
+      background: #e1b367;
+      margin: calc(#{$ball3}/ -2) 0 0 calc(#{$ball3}/ -2);
+      z-index: -30;
+      @include media('<laptop') {
+        width: 30vw;
+        height: 30vw;
+        margin: -15vw 0 0 -15vw;
+      }
+      @include media('>=split') {
+        width: 768px;
+        height: 768px;
+        margin: -384px 0 0 -384px;
+      }
+    }
+  }
+
+  //$ Aerosols Behind the Content
+  &-background {
+    @include absoluteZero;
+    @include fullSize;
+  }
+}

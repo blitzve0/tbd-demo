@@ -1,0 +1,59 @@
+.privacy {
+  $root: &;
+
+  height: 100vh;
+  background: $color-bg;
+  @include media('>=split') {
+    max-width: 3840px;
+  }
+
+  //$ Heading Style
+  &-h1 {
+    font-size: 6vw;
+    letter-spacing: -0.2vw;
+    line-height: 125%;
+    padding-inline: 15.5%;
+    overflow: hidden;
+    @include media('>=split') {
+      font-size: 170px;
+      letter-spacing: -8px;
+      line-height: 125%;
+      padding-inline: 596px;
+    }
+
+    &-slideup {
+      display: inline-block;
+      @include transformPerspective(1000);
+      @include transformRotateX(-90);
+      @include transformTranslate3D(0, 200%, 0);
+    }
+  }
+
+  //$ Sub Heading Style
+  &-h2 {
+    @extend .privacy-h1;
+    font-size: 3.5vw !important;
+    letter-spacing: -0.1vw !important;
+    @include media('>=split') {
+      font-size: 134px !important;
+      letter-spacing: -3.5px !important;
+    }
+  }
+
+  &-text {
+    padding-inline: 15.5%;
+    padding-block: 3.5vw;
+    @include media('>=split') {
+      padding-inline: 596px;
+      padding-block: 134px;
+    }
+
+    b {
+      font-weight: 600 !important;
+    }
+  }
+
+  &-slideup {
+    opacity: 0;
+  }
+}

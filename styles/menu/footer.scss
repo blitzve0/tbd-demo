@@ -1,0 +1,149 @@
+//$ Footer Component
+.footer {
+  $root: &;
+
+  width: 100%;
+  height: 2vw;
+  @include displaySpaceBetween;
+  font-size: 1.15vw;
+
+  margin-bottom: 3.5vw;
+  padding-left: 3.75vw;
+  padding-right: 3.75vw;
+  background: $color-bg;
+
+  z-index: 80;
+
+  @include media('<=phone') {
+    width: 92%;
+    height: 125px;
+    flex-direction: column;
+    margin-bottom: 42.5px;
+  }
+  @include media('>phone', '<=tablet') {
+    width: 92%;
+    height: 150px;
+    flex-direction: column;
+    margin-bottom: 42.5px;
+  }
+  @include media('>tablet', '<=laptop') {
+    width: 92%;
+    height: 200px;
+    flex-direction: column;
+    margin-bottom: 80px;
+  }
+
+  @include media('>=split') {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 135px;
+    padding-left: 145px;
+    padding-right: 145px;
+  }
+
+  &-mobile {
+    @include media('<laptop') {
+      display: flex;
+      @include fullSize;
+      flex-direction: column;
+      @include displaySpaceBetween;
+    }
+    @include media('>laptop') {
+      display: none;
+    }
+  }
+
+  &-desktop {
+    @include media('<laptop') {
+      display: none;
+    }
+    @include media('>laptop') {
+      width: 100%;
+      @include displaySpaceBetween;
+      @include transformTranslate3D(0, 250%, 0);
+      flex-direction: row;
+    }
+  }
+
+  &-row {
+    @include media('<laptop') {
+      width: 100%;
+      @include displaySpaceBetween;
+      flex-direction: row;
+    }
+    @include media('>laptop') {
+      display: none;
+    }
+  }
+
+  &-hr {
+    @include media('<laptop') {
+      width: 100%;
+      height: 1px;
+      background: $color-graybase;
+      opacity: 0.15;
+    }
+    @include media('>laptop') {
+      display: none;
+    }
+  }
+
+  &-location,
+  &-copyright {
+    display: block;
+    flex-direction: column;
+    &-label {
+      opacity: 1;
+      font-size: 1vw;
+      @include media('<=phone') {
+        font-size: 12px;
+      }
+      @include media('>phone', '<=tablet') {
+        font-size: 15px;
+      }
+      @include media('>tablet', '<=laptop') {
+        font-size: 20px;
+      }
+      @include media('>=split') {
+        font-size: 38px;
+      }
+    }
+  }
+  &-time {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  &-top {
+    opacity: 0.6;
+    font-size: 0.85vw;
+    @include media('<=phone') {
+      font-size: 10px;
+    }
+    @include media('>phone', '<=tablet') {
+      font-size: 13px;
+    }
+    @include media('>tablet', '<=laptop') {
+      font-size: 16px;
+    }
+    @include media('>=split') {
+      font-size: 32px;
+    }
+  }
+  &-bottom {
+    font-size: 1.15vw;
+    @include media('<=phone') {
+      font-size: 13px;
+    }
+    @include media('>phone', '<=tablet') {
+      font-size: 17px;
+    }
+    @include media('>tablet', '<=laptop') {
+      font-size: 24px;
+    }
+    @include media('>=split') {
+      font-size: 44px;
+    }
+  }
+}

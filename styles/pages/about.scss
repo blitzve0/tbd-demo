@@ -1,0 +1,514 @@
+//& Who We Are - Page Styling
+.about {
+  $root: &;
+
+  height: 100vh;
+  background: $color-bg;
+
+  @include media('>=split') {
+    max-width: 3840px;
+  }
+
+  //$ The Basics
+  &-section-3 {
+    display: flex;
+    flex-direction: column;
+    background: $color-bg;
+
+    @include media('<laptop') {
+      padding-top: 28vw;
+      padding-bottom: 40vw;
+    }
+    @include media('>=laptop', '<split') {
+      padding-inline: 7.75%;
+      padding-top: 13.5vw;
+      padding-bottom: 5vw;
+    }
+    @include media('>=split') {
+      padding-inline: 7.75%;
+      padding-top: 518px;
+      padding-bottom: 192px;
+    }
+
+    &-title {
+      display: block;
+      padding-inline: 8.5%;
+    }
+
+    &-desc {
+      display: block;
+      padding-top: 16vw;
+
+      @include media('<=tablet') {
+        font-size: 4.3vw;
+        padding-inline: 8.5%;
+      }
+      @include media('>tablet', '<laptop') {
+        font-size: 3vw;
+        padding-inline: 8.5%;
+      }
+      @include media('>=laptop', '<split') {
+        padding-top: 0px;
+        padding-left: 36.75%;
+        padding-right: 8.5%;
+        letter-spacing: -0.03vw;
+        line-height: 125%;
+        font-size: 1.75vw;
+      }
+      @include media('>=split') {
+        padding-top: 0px;
+        padding-left: 36.75%;
+        padding-right: 8.5%;
+        letter-spacing: -1.15px;
+        line-height: 125%;
+        font-size: 68px;
+      }
+    }
+  }
+
+  //$ The Team
+  &-section-4 {
+    display: flex;
+    height: auto;
+    @include displaySpaceBetween;
+    padding-inline: 8.5%;
+    padding-bottom: 7.5vw;
+    background: $color-bg;
+
+    @include media('>tablet', '<laptop') {
+      padding-bottom: 13.5vw;
+    }
+
+    @include media('>=laptop', '<split') {
+      padding-bottom: 5vw;
+      flex-direction: column;
+    }
+    @include media('>=split') {
+      padding-bottom: 192px;
+      flex-direction: column;
+    }
+
+    &-title {
+      display: block;
+      padding-bottom: 25vw;
+      @include media('>=laptop') {
+        display: none;
+      }
+
+      &-desktop {
+        @include media('<laptop') {
+          display: none;
+        }
+        @include media('>=laptop', '<split') {
+          padding-top: 9vw;
+        }
+        @include media('>=split') {
+          padding-top: 346px;
+        }
+      }
+    }
+
+    &-desktop-row {
+      @include displaySpaceBetween;
+      align-items: flex-start !important;
+      width: 92.5vw;
+      height: 48vw;
+
+      background: $color-bg;
+      @include media('<laptop') {
+        display: none;
+      }
+      @include media('>=split') {
+        width: 3552px;
+        height: 1843px;
+      }
+    }
+
+    &-team {
+      display: block;
+      padding-bottom: 5.5vw;
+      @include media('>=laptop', '<split') {
+        width: 15.5vw;
+        height: 24vw;
+      }
+      @include media('>=split') {
+        width: 595px;
+        height: 326.5px;
+      }
+
+      &-image {
+        position: relative;
+        width: 100%;
+        height: 53vw;
+        cursor: crosshair;
+
+        @include media('>=laptop', '<split') {
+          width: 100%;
+          height: 23.25vw;
+        }
+        @include media('>=split') {
+          width: 100%;
+          height: 893px;
+        }
+      }
+      &-name {
+        padding-top: 3vw;
+        font-size: 3.75vw;
+        font-weight: 600;
+        @include media('>=laptop', '<split') {
+          padding-top: 1vw;
+          letter-spacing: -0.03vw;
+          font-size: 1.2vw;
+        }
+        @include media('>=split') {
+          padding-top: 38.5px;
+          letter-spacing: -0.05px;
+          font-size: 47px;
+        }
+      }
+
+      &-post {
+        font-size: 3.25vw;
+        font-weight: 400;
+        line-height: 90%;
+        opacity: 0.6;
+        @include media('>=laptop', '<split') {
+          font-size: 0.95vw;
+          letter-spacing: -0.025vw;
+          line-height: 125%;
+        }
+        @include media('>=split') {
+          font-size: 36.5px;
+          letter-spacing: -0.95px;
+          line-height: 125%;
+        }
+      }
+    }
+
+    &-left {
+      @include fullSize;
+      display: inline-block;
+      @include media('>=laptop') {
+        display: none;
+      }
+    }
+    &-right {
+      display: inline-block;
+      @include fullSize;
+      @include media('>=laptop') {
+        display: none;
+      }
+    }
+
+    &-hr {
+      width: 12vw;
+      height: 100%;
+      @include media('>=laptop') {
+        display: none;
+      }
+    }
+  }
+
+  //$ The Beginning
+  &-section-6 {
+    display: flex;
+    flex-direction: column;
+    background: $color-bg;
+
+    @include media('<=tablet') {
+      margin-top: 13.5vw;
+      margin-bottom: 40vw;
+    }
+    @include media('>tablet', '<laptop') {
+      margin-top: 0vw;
+      margin-bottom: 12vw;
+    }
+    @include media('>=laptop', '<split') {
+      margin-left: 15.5%;
+      margin-top: 0px;
+      padding-bottom: 7.5vw;
+    }
+    @include media('>=split') {
+      margin-left: 15.5%;
+      margin-top: 0px;
+      padding-bottom: 250px;
+    }
+
+    &-title {
+      display: block;
+      padding-inline: 8.5%;
+      @include media('<laptop') {
+        padding-top: 28vw;
+      }
+      @include media('>=laptop') {
+        display: none;
+      }
+
+      &-desktop {
+        @include media('<laptop') {
+          display: none;
+        }
+        @include media('>=laptop', '<split') {
+          padding-top: 9vw;
+        }
+        @include media('>=split') {
+          padding-top: 346px;
+        }
+      }
+    }
+
+    &-desc {
+      display: block;
+      padding-top: 16vw;
+
+      @include media('<=tablet') {
+        font-size: 4.3vw;
+        padding-inline: 8.5%;
+      }
+      @include media('>tablet', '<laptop') {
+        font-size: 3vw;
+        padding-inline: 8.5%;
+      }
+      @include media('>=laptop', '<split') {
+        padding-top: 10vw;
+        padding-left: 13.5%;
+        padding-right: 18.5%;
+        letter-spacing: -0.03vw;
+        line-height: 125%;
+        font-size: 1.75vw;
+      }
+      @include media('>=split') {
+        padding-top: 384px;
+        padding-left: 13.5%;
+        padding-right: 18.5%;
+        letter-spacing: -1.15px;
+        line-height: 125%;
+        font-size: 68px;
+      }
+    }
+  }
+
+  //$ And The Culture
+  &-section-8 {
+    display: flex;
+    margin-top: 31vw;
+    margin-bottom: 50vw;
+    flex-direction: column;
+    background: $color-bg;
+
+    @include media('>tablet', '<laptop') {
+      margin-bottom: 31vw;
+    }
+
+    @include media('>=laptop', '<split') {
+      padding-left: 15.5%;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    @include media('>=split') {
+      padding-left: 15.5%;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    &-desktop {
+      width: 100%;
+      height: auto;
+      @include media('<laptop') {
+        display: none;
+      }
+    }
+
+    &-mobile {
+      width: 100%;
+      height: auto;
+      @include media('>=laptop') {
+        display: none;
+      }
+    }
+
+    &-title {
+      display: block;
+      text-align: left;
+      padding-left: 35%;
+      @include media('>tablet', '<laptop') {
+        padding-left: 50%;
+      }
+      @include media('>=laptop') {
+        display: none;
+      }
+
+      &-desktop {
+        @include media('<laptop') {
+          display: none;
+        }
+        @include media('>=laptop', '<split') {
+          padding-top: 9vw;
+        }
+        @include media('>=split') {
+          padding-top: 346px;
+        }
+      }
+    }
+
+    &-heading {
+      padding-inline: 8.5%;
+      font-size: 4.25vw;
+      font-weight: 600;
+      padding-top: 32vw;
+      @include media('>tablet', '<laptop') {
+        font-size: 3.25vw;
+        padding-top: 12vw;
+      }
+      @include media('>=laptop', '<split') {
+        padding-inline: 0%;
+        font-size: 1.5vw;
+        font-weight: 600;
+        padding-top: 0.7vw;
+      }
+      @include media('>=split') {
+        padding-top: 0px;
+        font-size: 58px;
+        padding-top: 27px;
+      }
+    }
+
+    &-desktop-row-1 {
+      width: 83%;
+      height: 7vw;
+      display: flex;
+      margin-top: 5.5vw;
+      @include media('>=split') {
+        height: 269px;
+        margin-top: 211px;
+      }
+      @include media('<laptop') {
+        display: none;
+      }
+
+      &-column-1 {
+        @include fullSize;
+        @include displaySpaceBetween;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+        @include media('<=laptop') {
+          display: none;
+        }
+      }
+      &-column-2 {
+        @extend .about-section-8-desktop-row-1-column-1;
+        flex: 2;
+      }
+    }
+
+    &-desktop-lottie {
+      width: 100%;
+      height: 25vw;
+      @include media('<laptop') {
+        display: none;
+      }
+      @include media('>=split') {
+        height: 960px;
+      }
+    }
+
+    &-lottie {
+      padding-inline: 5vw;
+      margin-bottom: -32vw;
+      @include media('>tablet', '<laptop') {
+        padding-inline: 8vw;
+        margin-bottom: -16vw;
+      }
+      @include media('>=laptop', '<split') {
+        position: relative;
+        left: -4.5vw;
+        height: 100%;
+      }
+      @include media('>=split') {
+        position: relative;
+        left: -173px;
+        height: 100%;
+      }
+    }
+
+    &-desktop-column {
+      @include fullSize;
+      @include displaySpaceBetween;
+      @include media('<laptop') {
+        display: none;
+      }
+    }
+
+    &-row {
+      @include displaySpaceBetween;
+      height: 47vw;
+      padding-inline: 8.5%;
+      padding-top: 9vw;
+      @include media('>tablet', '<=laptop') {
+        height: 32vw;
+        padding-top: 4vw;
+      }
+      @include media('>=split') {
+        height: 1805px;
+        padding-inline: 8.5%;
+        padding-top: 345.5px;
+      }
+    }
+
+    &-column {
+      @include fullSize;
+      @include displaySpaceBetween;
+      align-items: flex-start !important;
+      flex-direction: column;
+    }
+
+    &-tool {
+      font-size: 4.25vw;
+      font-weight: 400;
+      @include media('>tablet', '<laptop') {
+        font-size: 3.25vw;
+      }
+      @include media('>=laptop', '<split') {
+        font-size: 1.5vw;
+        width: 100%;
+        text-align: left;
+      }
+      @include media('>=split') {
+        font-size: 58px;
+        width: 100%;
+        text-align: left;
+      }
+    }
+
+    &-desc {
+      display: block;
+      padding-top: 25vw;
+      padding-inline: 8.5%;
+      font-size: 4.3vw;
+      @include media('>=split') {
+        padding-top: 960px;
+        padding-inline: 8.5%;
+        font-size: 165px;
+      }
+    }
+  }
+}
+
+//& Team Padding Top for Desktop
+.t1 {
+  padding-top: 13%;
+}
+
+.t2 {
+  padding-top: 22.5%;
+}
+.t3 {
+  padding-top: 9%;
+}
+.t4 {
+  padding-top: 15%;
+}
+.t5 {
+  padding-top: 3.25%;
+}

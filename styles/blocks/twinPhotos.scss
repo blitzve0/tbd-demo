@@ -1,0 +1,88 @@
+.twin-photos {
+  $root: &;
+
+  @include displaySpaceBetween;
+  background: $color-bg;
+  padding-inline: 8.5%;
+
+  @include media('<=tablet') {
+    flex-direction: column;
+    height: auto;
+  }
+  @include media('>tablet', '<=laptop') {
+    flex-direction: row;
+    height: auto;
+  }
+  @include media('>laptop', '<split') {
+    flex-direction: row;
+    padding-inline: 13.5%;
+  }
+  @include media('>=split') {
+    flex-direction: row;
+    padding-inline: 13.5%;
+  }
+
+  &-block {
+    @include displayCenter;
+    flex-direction: column;
+    height: auto;
+  }
+
+  &-image {
+    &-inline {
+      display: inline-block;
+      text-align: center;
+    }
+    @include media('<=tablet') {
+      width: 100vw;
+      height: 150vw;
+    }
+    @include media('>tablet', '<laptop') {
+      width: 40vw;
+      height: 55vw;
+    }
+    @include media('>=laptop', '<split') {
+      width: 34.5vw;
+      height: 100vh;
+    }
+    @include media('>=split') {
+      width: 1324px;
+      height: 100vh;
+    }
+
+    &-text {
+      margin-top: 2vw;
+      width: 94.5%;
+      padding-inline: 14%;
+      text-align: center;
+
+      font-size: 1.5vw;
+      letter-spacing: -0.03vw;
+
+      @include media('<=tablet') {
+        font-size: 4.25vw;
+        letter-spacing: -0.03vw;
+        margin-top: 6.5vw;
+      }
+      @include media('>tablet', '<laptop') {
+        font-size: 2vw;
+        letter-spacing: -0.03vw;
+      }
+      @include media('>=split') {
+        font-size: 56px;
+        letter-spacing: -1.15px;
+        margin-top: 76px;
+      }
+    }
+  }
+
+  &-br {
+    height: 18.5vw;
+    @include media('>tablet', '<=laptop') {
+      display: none;
+    }
+    @include media('>=split') {
+      height: 1228px;
+    }
+  }
+}

@@ -1,0 +1,350 @@
+//& Main Content Component
+.content {
+  $root: &;
+
+  @include fullSize;
+  @include displaySpaceBetween;
+  font-size: 2vw;
+  margin-top: 3.5vw;
+
+  background: $color-bg;
+
+  @include media('>=split') {
+    max-width: 3840px;
+  }
+
+  //@ Title of Content - Take a Tour/Socials
+  &-title {
+    width: 100%;
+    height: 16%;
+    opacity: 0.6;
+    font-size: 0.85vw;
+    @include media('<=phone') {
+      display: none;
+    }
+    @include media('>phone', '<=laptop') {
+      display: none;
+    }
+    @include media('>laptop', '<=desktop') {
+      display: block;
+    }
+    @include media('>=split') {
+      font-size: 32px;
+    }
+    &-mobile {
+      @extend .content-title;
+      display: none;
+      @include media('<=phone') {
+        font-size: 3vw;
+        display: block;
+        text-decoration: underline;
+      }
+      @include media('>phone', '<=tablet') {
+        font-size: 3vw;
+        display: block;
+        text-decoration: underline;
+      }
+      @include media('>tablet', '<=laptop') {
+        font-size: 2vw;
+        display: block;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  //@ Chapters Main Title
+  &-heading {
+    font-size: 3vw;
+    line-height: 3vw;
+    font-weight: 700;
+
+    color: transparent;
+    -webkit-text-stroke-width: 0.055vw;
+    -webkit-text-stroke-color: $color-graybase;
+    -webkit-text-fill-color: transparent;
+
+    padding-block: 1vw;
+    margin-block: -1vw;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    @include media('<=phone') {
+      font-size: 7vw;
+      line-height: 75%;
+      letter-spacing: -0.3vw;
+      width: 100%;
+      color: $color-graybase;
+      -webkit-text-stroke-width: 0px;
+      -webkit-text-stroke-color: transparent;
+      -webkit-text-fill-color: $color-graybase;
+    }
+    @include media('>phone', '<=tablet') {
+      font-size: 7vw;
+      line-height: 75%;
+      letter-spacing: -0.3vw;
+      width: 100%;
+      color: $color-graybase;
+      -webkit-text-stroke-width: 0px;
+      -webkit-text-stroke-color: transparent;
+      -webkit-text-fill-color: $color-graybase;
+    }
+    @include media('>tablet', '<=laptop') {
+      font-size: 36px;
+      line-height: 75%;
+      letter-spacing: -0.2vw;
+      width: 100%;
+      padding-right: 0.2vw;
+      color: $color-graybase;
+      -webkit-text-stroke-width: 0px;
+      -webkit-text-stroke-color: transparent;
+      -webkit-text-fill-color: $color-graybase;
+    }
+    @include media('>=split') {
+      font-size: 115px;
+      line-height: 115px;
+      font-weight: 700;
+
+      color: transparent;
+      -webkit-text-stroke-width: 2.1px;
+      -webkit-text-stroke-color: $color-graybase;
+      -webkit-text-fill-color: transparent;
+
+      padding-block: 38px;
+      margin-block: -38px;
+    }
+
+    &:hover {
+      color: $color-graybase;
+      -webkit-text-fill-color: $color-graybase;
+      -webkit-text-stroke: 1px transparent;
+    }
+    //@ Inline Block for Reveal Animation
+    &-slideup {
+      display: inline-block;
+      @include transformTranslate3D(0, 200%, 0);
+      opacity: 0;
+    }
+    //@ Serial No of Title
+    &-serial {
+      font-size: 1.5vw;
+      font-weight: 600;
+      color: $color-graybase;
+      -webkit-text-fill-color: $color-graybase;
+      -webkit-text-stroke: 0px;
+      vertical-align: middle;
+      padding-right: 2vw;
+      @include media('<=phone') {
+        font-size: 3vw;
+        vertical-align: middle;
+        margin-right: 2vw;
+      }
+      @include media('>phone', '<=tablet') {
+        font-size: 3vw;
+        vertical-align: middle;
+        margin-right: 2vw;
+      }
+      @include media('>tablet', '<=laptop') {
+        font-size: 18px;
+        vertical-align: middle;
+        margin-right: 2vw;
+      }
+      @include media('>=split') {
+        font-size: 58px;
+        -webkit-text-stroke: 0px;
+        padding-right: 77px;
+      }
+    }
+  }
+  //@ Socials Links
+  &-link {
+    text-align: left;
+    font-size: 0.85vw;
+
+    padding-block: 8px;
+    margin-block: -8px;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    @include media('<=phone') {
+      font-size: 3vw;
+      font-weight: 600;
+    }
+    @include media('>phone', '<=tablet') {
+      font-size: 3vw;
+      font-weight: 600;
+    }
+    @include media('>tablet', '<=laptop') {
+      font-size: 2vw;
+      font-weight: 600;
+    }
+    @include media('>=split') {
+      font-size: 32px;
+      padding-block: 16px;
+      margin-block: -16px;
+    }
+
+    &-slideup {
+      display: inline-block;
+      @include transformTranslate3D(0, 200%, 0);
+      opacity: 0;
+    }
+  }
+
+  //& Left Section for Chapters
+  &-left {
+    display: flex;
+    @include fullSize;
+    flex: 3;
+    padding-left: 13vw;
+    padding-right: 4vw;
+    padding-block: 6.75vw;
+    @include media('height<=phoneHeight') {
+      padding-top: 8vw !important;
+      padding-bottom: 8vw !important;
+    }
+    @include media('<=phone') {
+      padding-top: 27vw;
+      padding-bottom: 27vw;
+      padding-left: 12vw;
+      padding-right: 0px;
+      flex: 2.75;
+    }
+    @include media('>phone', '<=tablet') {
+      padding-top: 100px;
+      padding-bottom: 100px;
+      padding-left: 12vw;
+      padding-right: 0px;
+      flex: 2.75;
+    }
+    @include media('>tablet', '<=crt') {
+      padding-top: 13.5vw;
+      padding-bottom: 13.5vw;
+      padding-left: 12vw;
+      padding-right: 0px;
+      flex: 2.75;
+    }
+    @include media('>crt', '<=laptop') {
+      padding-top: 15vw;
+      padding-bottom: 15vw;
+      padding-left: 12vw;
+      padding-right: 0px;
+      flex: 2.75;
+    }
+    @include media('>=split') {
+      padding-left: 500px;
+      padding-right: 154px;
+      padding-block: 260px;
+    }
+
+    &-body {
+      width: 90%;
+      height: 84%;
+      @include displaySpaceBetween;
+      flex-direction: column;
+      @include media('<=tablet') {
+        flex-direction: row;
+      }
+
+      &-row {
+        display: flex;
+        @include fullSize;
+        flex-direction: row;
+        @include media('<=tablet') {
+          flex-direction: column;
+        }
+
+        &-column {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: space-between;
+          @include fullSize;
+        }
+      }
+    }
+  }
+
+  //& Right Section for Socials
+  &-right {
+    display: flex;
+    @include fullSize;
+    flex: 1;
+    padding-inline: 2.35vw;
+    padding-block: 6.75vw;
+    @include media('height<=phoneHeight') {
+      padding-top: 8vw !important;
+    }
+    @include media('<=phone') {
+      padding-top: 27vw;
+    }
+    @include media('>phone', '<=tablet') {
+      padding-top: 100px;
+    }
+    @include media('>tablet', '<=crt') {
+      padding-top: 13.5vw;
+    }
+    @include media('>crt', '<=laptop') {
+      padding-top: 15vw;
+    }
+    @include media('>=split') {
+      padding-inline: 90px;
+      padding-block: 260px;
+    }
+
+    &-body {
+      width: 75%;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      height: 84%;
+
+      &-title {
+        @include displaySpaceBetween;
+        width: 100%;
+        height: 30%;
+        opacity: 0.6;
+        font-size: 0.85vw;
+        @include media('>=split') {
+          font-size: 32px;
+        }
+      }
+
+      &-socials {
+        width: 100%;
+        height: 40%;
+        @include displaySpaceBetween;
+        flex-direction: row;
+        @include media('<=phone') {
+          height: 100%;
+        }
+        @include media('>phone', '<=laptop') {
+          height: 100%;
+        }
+        &-column {
+          @include fullSize;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      &-more {
+        width: 100%;
+        height: 16%;
+        @include displaySpaceBetween;
+        flex-direction: row;
+
+        &-column {
+          @include fullSize;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

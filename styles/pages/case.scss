@@ -1,0 +1,445 @@
+//& Case Study - Page Styling
+.case {
+  $root: &;
+
+  height: 100vh;
+  background: $color-bg;
+  @include media('>=split') {
+    max-width: 3840px;
+  }
+
+  //$ Case Hero
+  &-hero {
+    display: block;
+    flex-direction: column;
+    background: $color-bg;
+    overflow: hidden;
+
+    padding-top: 15.5vw;
+    @include media('<laptop') {
+      padding-top: 34.05vw;
+    }
+    @include media('>=split') {
+      padding-top: 596px;
+    }
+
+    //` Heading Style
+    &-heading {
+      padding-left: 15.5vw;
+      padding-right: 8vw;
+      margin-bottom: 11.5vw;
+      overflow: hidden;
+      @include media('<laptop') {
+        padding-left: 7.5vw;
+        padding-right: 8vw;
+        margin-bottom: 31vw;
+      }
+      @include media('>=split') {
+        padding-left: 596px;
+        padding-right: 308px;
+        margin-bottom: 442px;
+      }
+
+      &-slideup {
+        &-1 {
+          display: inline-block;
+          @include transformPerspective(1000);
+          @include transformRotateX(-90);
+          @include transformTranslate3D(0, 200%, 0);
+          opacity: 0;
+          font-size: 1.75vw;
+          letter-spacing: -0.025vw;
+          line-height: 165%;
+          width: 57%;
+          @include media('<laptop') {
+            font-size: 3.75vw;
+            letter-spacing: -0.05vw;
+            width: 90%;
+          }
+          @include media('>=split') {
+            font-size: 68px;
+            letter-spacing: -1px;
+          }
+        }
+        &-2 {
+          display: inline-block;
+          @include transformPerspective(1000);
+          @include transformRotateX(-90);
+          @include transformTranslate3D(0, 200%, 0);
+          opacity: 0;
+          font-size: 6vw;
+          letter-spacing: -0.3vw;
+          line-height: 125%;
+          @include media('<laptop') {
+            font-size: 6.75vw;
+            letter-spacing: -0.2vw;
+            padding-bottom: 5vw;
+          }
+          @include media('>=split') {
+            font-size: 230px;
+            letter-spacing: -12px;
+            line-height: 125%;
+          }
+        }
+      }
+    }
+
+    //` Image Style
+    &-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      @include media('<laptop') {
+        height: 55vh;
+      }
+      @include media('>=split') {
+        max-width: 3840px;
+      }
+      @include transformTranslate3D(0, 50%, 0); //` Before Mounting
+      @include transformScale(1.2); //` Be at this State
+      opacity: 0; //` For Loading Animation
+    }
+  }
+
+  //$ Case Year and Services Info
+  &-info {
+    margin-top: 0px;
+
+    @include media('<laptop') {
+      margin-top: 20vw;
+    }
+
+    @include media('>=split') {
+      margin-top: 0px;
+    }
+
+    &-row {
+      display: flex;
+      flex-direction: row;
+      background: $color-bg;
+
+      padding-block: 2vw;
+      padding-left: 15.5%;
+      padding-right: 8.5%;
+
+      font-size: 1.5vw;
+      letter-spacing: -0.03vw;
+      font-weight: 600;
+
+      @include media('<=tablet') {
+        flex-direction: column;
+        padding-left: 9%;
+        padding-right: 8%;
+        padding-top: 0px;
+        padding-bottom: 10vw;
+        font-size: 4.25vw;
+        letter-spacing: -0.025vw;
+      }
+      @include media('>tablet', '<laptop') {
+        flex-direction: column;
+        padding-left: 9%;
+        padding-right: 8%;
+        padding-top: 0px;
+        padding-bottom: 5vw;
+        font-size: 2.75vw;
+        letter-spacing: -0.025vw;
+      }
+      @include media('>=split') {
+        padding-block: 76px;
+        font-size: 58px;
+        letter-spacing: -1.15px;
+      }
+    }
+
+    &-title {
+      display: flex;
+      flex: 1;
+      font-weight: 400;
+      opacity: 0.6;
+    }
+
+    &-desc {
+      display: flex;
+      flex-wrap: wrap;
+      white-space: nowrap;
+
+      flex: 2.5;
+      font-weight: 600;
+
+      @include media('<=tablet') {
+        padding-top: 5vw;
+      }
+      @include media('>tablet', '<laptop') {
+        padding-top: 3.5vw;
+      }
+
+      &-service {
+        display: flex;
+        width: auto;
+        padding-right: 2.5vw;
+        padding-bottom: 2vw;
+        @include media('>=split') {
+          padding-right: 96px;
+          padding-bottom: 76px;
+        }
+      }
+    }
+  }
+
+  //& Case Goal
+  &-goal {
+    display: block;
+    text-align: left;
+    padding-left: 15%;
+    margin-top: 0px;
+    margin-bottom: -10vw;
+
+    @include media('<laptop') {
+      padding-left: 9%;
+      margin-top: 13.5vw;
+      margin-bottom: -18.5vw;
+    }
+    @include media('>=split') {
+      margin-top: 0px;
+      margin-bottom: -384px;
+    }
+
+    &-serial {
+      font-weight: 700;
+      -webkit-text-stroke-color: $color-graybase;
+      -webkit-text-fill-color: transparent;
+
+      @include media('<=tablet') {
+        font-size: 5.5vw;
+        -webkit-text-stroke-width: 0.2vw;
+      }
+      @include media('>tablet', '<laptop') {
+        -webkit-text-stroke-width: 0.2vw;
+        font-size: 4.5vw;
+      }
+      @include media('>=laptop', '<split') {
+        font-size: 3.15vw;
+        letter-spacing: -0.05vw !important;
+        line-height: 125%;
+        -webkit-text-stroke-width: 0.055vw;
+      }
+      @include media('>=split') {
+        font-size: 122px;
+        letter-spacing: -1.15px !important;
+        line-height: 125%;
+        -webkit-text-stroke-width: 2px;
+      }
+    }
+    &-1 {
+      @extend .case-goal-serial;
+
+      @include media('<=tablet') {
+        font-size: 10vw;
+        letter-spacing: -0.075vw;
+      }
+      @include media('>tablet', '<laptop') {
+        font-size: 7.5vw;
+      }
+      @include media('>=laptop', '<split') {
+        font-size: 6.15vw;
+        letter-spacing: -0.25vw !important;
+      }
+      @include media('>=split') {
+        font-size: 236px;
+        letter-spacing: -8px !important;
+      }
+    }
+    &-2 {
+      @extend .case-goal-serial;
+
+      -webkit-text-stroke-color: $color-graybase;
+      -webkit-text-fill-color: $color-graybase;
+
+      @include media('<=tablet') {
+        font-size: 10vw;
+        -webkit-text-stroke-width: 0.2vw;
+        letter-spacing: -0.075vw;
+        line-height: 90%;
+      }
+      @include media('>tablet', '<laptop') {
+        -webkit-text-stroke-width: 0.2vw;
+        font-size: 7.5vw;
+        line-height: 90%;
+      }
+      @include media('>=laptop', '<split') {
+        font-size: 6.15vw;
+        letter-spacing: -0.35vw !important;
+        -webkit-text-stroke-width: 0vw;
+      }
+      @include media('>=split') {
+        font-size: 236px;
+        letter-spacing: -12px !important;
+        -webkit-text-stroke-width: 0px;
+      }
+    }
+
+    &-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 40vw;
+      margin-left: 33%;
+      background: $color-bg;
+
+      @include media('<laptop') {
+        width: auto;
+        padding-left: 0%;
+        margin-left: 23%;
+        height: auto;
+      }
+    }
+
+    &-button {
+      display: block;
+      width: auto;
+      height: auto;
+      margin-top: -3vw;
+
+      @include media('<=tablet') {
+        padding-left: 0%;
+        padding-right: 5vw;
+        margin-left: -18%;
+        margin-top: -11.5vw;
+      }
+      @include media('>tablet', '<laptop') {
+        padding-left: 0%;
+        padding-right: 7vw;
+        margin-left: -18%;
+        margin-top: -8.5vw;
+      }
+      @include media('>=split') {
+        margin-top: -116px;
+      }
+    }
+
+    &-margin-bottom {
+      margin-bottom: -13.5vw;
+
+      @include media('<=tablet') {
+        margin-bottom: 31vw;
+      }
+      @include media('>tablet', '<laptop') {
+        margin-top: -13.5vw;
+        margin-bottom: -13.5vw;
+      }
+      @include media('>=split') {
+        margin-bottom: -518px;
+      }
+    }
+  }
+
+  //& Case Planning
+  &-planning {
+    @extend .case-goal;
+    @include media('<=tablet') {
+      margin-top: 31vw;
+    }
+    &-serial {
+      @extend .case-goal-serial;
+    }
+    &-1 {
+      @extend .case-goal-1;
+    }
+    &-2 {
+      @extend .case-goal-2;
+    }
+    &-margin-bottom {
+      @extend .case-goal-margin-bottom;
+    }
+  }
+
+  //& Development Heading
+  &-development-title {
+    font-size: 4.425vw;
+    letter-spacing: -0.2vw;
+    line-height: 125%;
+    padding-inline: 15.5vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: $color-bg;
+    @include media('<=tablet') {
+      font-size: 7.5vw;
+      letter-spacing: -0.2vw;
+      padding-inline: 8vw;
+      margin-top: 45vw;
+      margin-bottom: -20vw;
+    }
+    @include media('>tablet', '<laptop') {
+      font-size: 5.9vw;
+      letter-spacing: -0.2vw;
+      padding-inline: 8vw;
+      margin-top: 10.5vw;
+    }
+    @include media('>=split') {
+      font-size: 170px;
+      letter-spacing: -6px;
+      line-height: 125%;
+      padding-inline: 596px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    &-slideup {
+      display: inline-block;
+    }
+
+    &-overview {
+      @include media('<=tablet') {
+        margin-bottom: 18.5vw;
+      }
+      @include media('>tablet', '<laptop') {
+        margin-bottom: 13.5vw;
+      }
+    }
+  }
+
+  //& Collaboration
+  &-collaboration {
+    width: 85%;
+    height: auto;
+    line-height: 125%;
+    margin-top: 0px;
+    font-size: 1.75vw;
+    letter-spacing: -0.03vw;
+    @include media('<=tablet') {
+      width: 94%;
+      font-size: 4.25vw;
+      letter-spacing: -0.03vw;
+      margin-top: 13.5vw;
+    }
+    @include media('>tablet', '<laptop') {
+      font-size: 3.5vw;
+      margin-top: 13.5vw;
+    }
+    @include media('>=split') {
+      margin-top: 0px;
+      font-size: 68px;
+      letter-spacing: -1.15px;
+    }
+
+    &-mobile {
+      @include media('<=tablet') {
+        margin-top: 13.5vw !important;
+        margin-bottom: 21vw !important;
+      }
+      @include media('>tablet', '<laptop') {
+        margin-top: 21vw !important;
+        margin-bottom: 13.5vw !important;
+      }
+    }
+  }
+
+  //& Line Break for Contact Us
+  &-contact-br {
+    width: 100%;
+    height: 18.5vw;
+  }
+}

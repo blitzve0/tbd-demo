@@ -1,0 +1,111 @@
+.main-loading {
+  $root: &;
+
+  @include fullHeight;
+  @include displayCenter;
+  flex-direction: column;
+  background: $color-base;
+  color: $color-graybase;
+
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 50000;
+  pointer-events: all;
+
+  &-tags {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 3.25vw;
+    font-weight: 700;
+    line-height: 165%;
+    letter-spacing: -0.175vw;
+    overflow: hidden;
+
+    @include media('<=tablet') {
+      font-size: 10vw;
+      letter-spacing: -0.55vw;
+    }
+    @include media('>tablet', '<laptop') {
+      font-size: 6.5vw;
+      letter-spacing: -0.35vw;
+    }
+    @include media('>=split') {
+      font-size: 124px;
+      letter-spacing: -6.72px;
+    }
+  }
+
+  &-number-bg {
+    position: relative;
+    width: 12vw;
+    height: 0.175vw;
+    margin-top: 0.75vw;
+    background: $color-border;
+    z-index: 150;
+    @include media('<=tablet') {
+      width: 33vw;
+      height: 0.65vw;
+      margin-top: 2.5vw;
+    }
+    @include media('>tablet', '<laptop') {
+      width: 22vw;
+      height: 0.4vw;
+      margin-top: 1vw;
+    }
+    @include media('>=split') {
+      width: 460px;
+      height: 6.72px;
+      margin-top: 28px;
+    }
+  }
+
+  &-number {
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: 0.175vw;
+    background: $color-graybase;
+    z-index: 200;
+    @include media('<=tablet') {
+      height: 0.65vw;
+    }
+    @include media('>tablet', '<laptop') {
+      height: 0.4vw;
+    }
+    @include media('>=split') {
+      height: 6.72px;
+    }
+  }
+
+  &-mark {
+    top: -0.25vw;
+    right: -1.75vw;
+    position: absolute;
+    padding-right: 0.75vw;
+    padding-left: 0.25vw;
+    font-size: 1.15vw;
+    @include media('<=tablet') {
+      top: -1.5vw;
+      right: -3.75vw;
+      font-size: 3.5vw;
+    }
+    @include media('>tablet', '<laptop') {
+      top: -0.5vw;
+      right: -2.5vw;
+      font-size: 2vw;
+    }
+    @include media('>=split') {
+      top: -9.6px;
+      right: -68px;
+      font-size: 44px;
+    }
+  }
+
+  span {
+    display: inline-block;
+    @include transformTranslate3D(0, 0, 0);
+  }
+}

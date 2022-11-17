@@ -1,0 +1,123 @@
+.marquee {
+  $root: &;
+
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  background: $color-bg;
+
+  @include media('<laptop') {
+    margin-top: 7.5vw;
+  }
+  @include media('>=laptop', '<split') {
+    margin-top: 0px;
+  }
+  @include media('>=split') {
+    margin-top: 0px;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  &-container {
+    width: 100%;
+  }
+
+  &-main {
+    overflow: hidden;
+    padding: 20vw 0;
+    @include media('<laptop') {
+      padding: 20vw 0;
+    }
+    @include media('>=split') {
+      padding: 768px 0;
+    }
+  }
+
+  &-carousel {
+    cursor: grab;
+    will-change: transform;
+    &:active {
+      cursor: grabbing;
+    }
+    @include transformRotateY(-7.5);
+    &.-v1 {
+      margin-right: -18vw;
+      margin-bottom: 5vw;
+      @include media('<laptop') {
+        margin-bottom: 5vw;
+        margin-right: 0px;
+      }
+      @include media('>=split') {
+        margin-bottom: -76px;
+        margin-right: 192px;
+      }
+    }
+
+    &.-v2 {
+      margin-left: -18vw;
+      @include media('<laptop') {
+        margin-left: 0px;
+      }
+      @include media('>=split') {
+        margin-left: -692px;
+      }
+    }
+  }
+
+  &-items {
+    width: 100%;
+    display: flex;
+    position: relative;
+
+    @include media('<=tablet') {
+      height: 32vw;
+    }
+    @include media('>tablet', '<laptop') {
+      height: 25vw;
+    }
+    @include media('>=laptop', '<split') {
+      height: 15vw;
+    }
+    @include media('>=split') {
+      height: 500px;
+    }
+  }
+
+  &-item {
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+
+    height: 100%;
+
+    @include media('<=tablet') {
+      width: 48vw;
+      margin-right: 3vw;
+    }
+    @include media('>tablet', '<laptop') {
+      width: 28vw;
+      margin-right: 4vw;
+    }
+    @include media('<laptop') {
+      border-radius: 4vw;
+    }
+    @include media('>=laptop', '<split') {
+      width: 22vw;
+      margin-right: 4vw;
+      border-radius: 2vw;
+    }
+    @include media('>=split') {
+      margin-right: 154px;
+      width: 600px;
+      border-radius: 77px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

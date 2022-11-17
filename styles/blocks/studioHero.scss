@@ -1,0 +1,306 @@
+//$ Banner
+.banner {
+  margin-top: 7vw;
+  position: relative;
+
+  @include media('>=split') {
+    margin-top: 268px;
+  }
+
+  @include media('<laptop') {
+    margin-top: 20vw;
+  }
+
+  .banner-row {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    &.center {
+      justify-content: center;
+      text-align: center;
+      .row-letter {
+        left: 0;
+      }
+    }
+    &.right {
+      justify-content: flex-end;
+    }
+    .row-title,
+    .row-letter {
+      font-size: 15vw;
+      color: $color-bg;
+      mix-blend-mode: exclusion;
+      font-weight: 600;
+      position: relative;
+      z-index: 10 !important;
+      line-height: 125%;
+      letter-spacing: -0.65vw;
+      display: inline-block;
+      white-space: nowrap;
+      @include media('<=tablet') {
+        font-size: 20vw;
+        line-height: 145%;
+      }
+      @include media('>tablet', '<laptop') {
+        line-height: 155%;
+      }
+      @include media('>=split') {
+        font-size: 576px;
+        letter-spacing: -25px;
+      }
+    }
+    .row-col {
+      width: 50%;
+      display: flex;
+      align-content: center;
+      justify-content: flex-end;
+      margin-left: -1.15vw;
+      line-height: 100%;
+      @include media('<=tablet') {
+        margin-left: 1vw;
+      }
+      @include media('>=split') {
+        margin-left: -44px;
+      }
+
+      .row-message {
+        font-weight: 400;
+        font-size: 1.75vw;
+        line-height: 125%;
+        width: 28vw;
+
+        @include media('>tablet', '<laptop') {
+          font-size: 2.25vw;
+          line-height: 125%;
+          width: 35vw;
+        }
+        @include media('>=split') {
+          font-size: 68px;
+          line-height: 125%;
+          width: 1076px;
+        }
+      }
+    }
+  }
+}
+
+.transition-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  @include media('>=split') {
+    width: 3840px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img,
+  video {
+    width: 50vw;
+    display: flex;
+    @include media('>=split') {
+      width: 1920px;
+    }
+  }
+
+  &.final {
+    display: block;
+    position: relative;
+    background: $color-bg;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    z-index: 4;
+    cursor: pointer;
+    @include media('<=tablet') {
+      top: -11.5vw;
+      height: 45vw;
+      background: transparent;
+    }
+    @include media('>tablet', '<laptop') {
+      height: 45vw;
+      top: -9.5vw;
+      background: transparent;
+    }
+    @include media('>=laptop', '<split') {
+      width: 100%;
+      padding: 0 5%;
+      margin: -8vw 0px 0px 0px;
+    }
+    @include media('>=split') {
+      top: -308px;
+      width: 3840px;
+      padding: 0 192px;
+      margin: -308px 0px 0px 0px;
+    }
+
+    img,
+    video {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+//$ Image Loader
+body.loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.loader {
+  .loader-inner {
+    .image-block {
+      position: absolute;
+      transform-origin: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.image-1 {
+        width: 30vw;
+        @include media('<=tablet') {
+          width: 50vw;
+        }
+        @include media('>tablet', '<laptop') {
+          width: 40vw;
+        }
+        @include media('>=split') {
+          width: 1152px;
+        }
+        left: 5%;
+        top: 15%;
+        z-index: 5;
+      }
+      &.image-3 {
+        width: 20vw;
+        @include media('<=tablet') {
+          width: 45vw;
+        }
+        @include media('>tablet', '<laptop') {
+          width: 30vw;
+        }
+        @include media('>=split') {
+          width: 768px;
+        }
+        left: 15%;
+        top: 65%;
+        z-index: 5;
+      }
+      &.image-4 {
+        max-width: 30vw;
+        @include media('<=tablet') {
+          width: 50vw;
+        }
+        @include media('>tablet', '<laptop') {
+          width: 40vw;
+        }
+        @include media('>=split') {
+          width: 1152px;
+        }
+        width: 40%;
+        right: 5%;
+        top: 60%;
+        z-index: 5;
+      }
+      &.image-5 {
+        width: 20vw;
+        @include media('<=tablet') {
+          width: 45vw;
+        }
+        @include media('>tablet', '<laptop') {
+          width: 30vw;
+        }
+        @include media('>=split') {
+          width: 768px;
+        }
+        right: 15%;
+        top: 25%;
+        z-index: 5;
+      }
+      img,
+      video {
+        width: 100%;
+        object-fit: fill;
+      }
+    }
+  }
+}
+
+//$ Studio Marquee
+$move-initial: calc(-25%);
+$move-final: calc(-50%);
+
+.marquee-studio {
+  position: relative;
+  overflow: hidden;
+
+  &.animate .marquee__inner {
+    animation-play-state: running;
+  }
+  .marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d($move-initial, 0, 0);
+    animation: marquee 5s linear infinite;
+    animation-play-state: paused;
+  }
+  .row-title {
+    padding: 0 8vw;
+    @include media('>=split') {
+      padding: 0 308px;
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d($move-initial, 0, 0);
+  }
+
+  100% {
+    transform: translate3d($move-final, 0, 0);
+  }
+}
+
+@keyframes marquee-lg {
+  0% {
+    transform: translate3d(calc(-25% + 10vw), 0, 0);
+    @include media('>=split') {
+      transform: translate3d(calc(-25% + 384px), 0, 0);
+    }
+  }
+
+  100% {
+    transform: translate3d(calc(-50% + 10vw), 0, 0);
+    @include media('>=split') {
+      transform: translate3d(calc(-50% + 384px), 0, 0);
+    }
+  }
+}
+
+.center {
+  padding-right: 9.5vw;
+  justify-content: flex-end !important;
+  @include media('>=split') {
+    padding-right: 364px;
+  }
+}
+.minus-medium {
+  margin-top: -5vw;
+  @include media('>=split') {
+    padding-right: -192px;
+  }
+}
+
+.minus-small {
+  margin-top: -2.5vw;
+  @include media('>=split') {
+    padding-right: -96px;
+  }
+}
+.margin-keeper {
+  padding-top: 100vh;
+}

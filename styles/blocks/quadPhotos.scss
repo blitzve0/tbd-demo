@@ -1,0 +1,73 @@
+.quad-photos {
+  $root: &;
+
+  @include displaySpaceBetween;
+  background: $color-bg;
+  padding-inline: 8.5%;
+
+  @include media('<=tablet') {
+    margin-top: 20vw;
+    height: auto;
+    flex-direction: column;
+  }
+  @include media('>tablet', '<=laptop') {
+    margin-top: 20vw;
+    flex-direction: row;
+    height: auto;
+  }
+  @include media('>laptop', '<split') {
+    margin-top: 0px;
+    flex-direction: row;
+    padding-inline: 13.5%;
+  }
+  @include media('>=split') {
+    margin-top: 0px;
+    flex-direction: row;
+    padding-inline: 13.5%;
+  }
+
+  &-image {
+    @include media('<=tablet') {
+      width: 100vw;
+      height: 150vw;
+    }
+    @include media('>tablet', '<laptop') {
+      width: 40vw;
+      height: 70vw;
+    }
+    @include media('>=laptop', '<split') {
+      width: 34.5vw;
+      height: 100vh;
+    }
+    @include media('>=split') {
+      width: 1324px;
+      height: 100vh;
+    }
+  }
+
+  &-br {
+    height: 32vw;
+    @include media('<=tablet') {
+      height: 16vw;
+    }
+    @include media('>tablet', '<laptop') {
+      display: none;
+    }
+    @include media('>=split') {
+      height: 1228px;
+    }
+  }
+
+  &-no-margin {
+    margin-top: -13.5vw;
+    @include media('<=tablet') {
+      margin-top: 15vw;
+    }
+    @include media('>tablet', '<laptop') {
+      margin-top: -13.5vw;
+    }
+    @include media('>=split') {
+      margin-top: -518px;
+    }
+  }
+}

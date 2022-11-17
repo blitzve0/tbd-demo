@@ -1,0 +1,144 @@
+//& Overview - version 1
+.overview-v1 {
+  $root: &;
+
+  display: flex;
+  flex-direction: row;
+  background: $color-bg;
+
+  margin-top: 13.5vw;
+  padding-block: 4.5vw;
+  padding-left: 15.5%;
+  padding-right: 13.5%;
+
+  @include media('<laptop') {
+    flex-direction: column;
+    padding-left: 9%;
+    padding-right: 8%;
+    padding-top: 20vw;
+    padding-bottom: 10vw;
+  }
+  @include media('>=laptop', '<split') {
+    margin-top: 0px;
+  }
+  @include media('>=split') {
+    margin-top: 0px;
+    padding-block: 172px;
+  }
+
+  &-title {
+    display: flex;
+    flex: 1;
+    font-size: 1.25vw;
+    letter-spacing: -0.0125vw;
+    font-weight: 600;
+    @include media('<=tablet') {
+      font-size: 3.75vw;
+      letter-spacing: -0.075vw;
+      font-weight: 700;
+    }
+    @include media('>tablet', '<laptop') {
+      font-size: 3vw;
+      letter-spacing: -0.03vw;
+      font-weight: 700;
+    }
+    @include media('>=split') {
+      font-size: 48px;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  &-desc {
+    display: flex;
+    flex: 2.15;
+    font-size: 1.75vw;
+    letter-spacing: -0.03vw;
+    font-weight: 400;
+    @include media('<=tablet') {
+      font-size: 4.25vw;
+      letter-spacing: -0.03vw;
+      padding-top: 8.5vw;
+    }
+    @include media('>tablet', '<laptop') {
+      font-size: 3vw;
+      letter-spacing: -0.03vw;
+      padding-top: 8.5vw;
+    }
+    @include media('>=split') {
+      font-size: 68px;
+      letter-spacing: -1.15px;
+    }
+  }
+}
+//& Overview - version 2
+.overview-v2 {
+  $root: &;
+
+  display: flex;
+  flex-direction: row;
+  background: $color-bg;
+
+  margin-top: 13.5vw;
+  padding-top: 4.5vw;
+  padding-left: 15.5%;
+  padding-right: 13.5%;
+
+  @include media('<laptop') {
+    flex-direction: column;
+    padding-left: 9%;
+    padding-right: 8%;
+    padding-top: 20vw;
+  }
+  @include media('>=laptop', '<split') {
+    margin-top: 0px;
+  }
+  @include media('>=split') {
+    margin-top: 0px;
+    padding-block: 172px;
+  }
+
+  &-title {
+    display: flex;
+    flex: 1;
+    font-size: 4.25vw;
+    letter-spacing: -0.1vw;
+    font-weight: 700;
+    line-height: 100%;
+    @include media('<=tablet') {
+      font-size: 9vw;
+      line-height: 125%;
+      letter-spacing: -0.0125vw;
+    }
+    @include media('>tablet', '<laptop') {
+      font-size: 6.5vw;
+      line-height: 125%;
+      letter-spacing: -0.05vw;
+    }
+    @include media('>=split') {
+      font-size: 164px;
+      letter-spacing: -3.8px;
+    }
+  }
+
+  &-desc {
+    display: flex;
+    flex: 1;
+    font-size: 1.75vw;
+    letter-spacing: -0.03vw;
+    font-weight: 400;
+    @include media('<=tablet') {
+      font-size: 4.25vw;
+      letter-spacing: -0.03vw;
+      padding-top: 13.5vw;
+    }
+    @include media('>tablet', '<laptop') {
+      font-size: 3vw;
+      letter-spacing: -0.03vw;
+      padding-top: 8.5vw;
+    }
+    @include media('>=split') {
+      font-size: 68px;
+      letter-spacing: -1.15px;
+    }
+  }
+}

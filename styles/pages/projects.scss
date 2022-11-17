@@ -1,0 +1,205 @@
+//& The projects - Page Styling - DESKTOP
+.projects {
+  $root: &;
+
+  height: 100vh;
+  background: $color-bg;
+
+  @include media('>=split') {
+    max-width: 3840px;
+  }
+
+  &-title {
+    padding-left: 3.75vw;
+    position: relative;
+    margin-block: -2.5vw;
+    @include media('<laptop') {
+      padding-left: 5%;
+      margin-top: 5vw;
+      margin-bottom: 2.5vw;
+    }
+    @include media('>=split') {
+      padding-left: 144px;
+    }
+
+    &-main {
+      font-size: 3vw;
+      font-weight: 900;
+      color: $color-graybase;
+      @include media('<laptop') {
+        font-size: 6.5vw;
+        font-weight: 600;
+      }
+      @include media('>=split') {
+        font-size: 116px;
+      }
+    }
+    &-bracket {
+      font-size: 1.75vw;
+      font-weight: 400;
+      color: $color-error;
+      @include media('<laptop') {
+        font-size: 4.5vw;
+        font-weight: 600;
+      }
+      @include media('>=split') {
+        font-size: 68px;
+      }
+    }
+  }
+
+  &-slide {
+    display: block;
+    min-width: 250vw;
+    height: 100vh;
+    max-width: 100%;
+    padding-top: 3.5vw;
+    background-color: $color-bg;
+    font-size: 5vw;
+    will-change: transform;
+    @include media('>=split') {
+      width: 9600px;
+      padding-top: 13px;
+      font-size: 192px;
+    }
+
+    &-row {
+      width: auto;
+      height: 100%;
+      display: flex;
+      margin-top: 6vw;
+      margin-left: 10.75vw;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      background: $color-bg;
+      @include media('>=split') {
+        margin-top: 230px;
+        margin-left: 412px;
+      }
+    }
+
+    &-case {
+      display: block;
+      width: 55vw !important;
+      height: 55vh;
+      margin-right: 11.5vw;
+      cursor: pointer;
+      opacity: 0;
+      @include transformTranslate3D(0, 50%, 0);
+      @include media('>=split') {
+        width: 2112px !important;
+        height: 1152px;
+        margin-right: 442px;
+      }
+
+      &-title {
+        width: 100%;
+        text-align: center;
+        font-size: 1.15vw;
+        font-weight: 600;
+        color: $color-graybase;
+        padding-top: 3vw;
+        @include media('>=split') {
+          font-size: 44px;
+          padding-top: 116px;
+        }
+      }
+
+      &-title-v2 {
+        @extend .projects-slide-case-title;
+        padding-top: 0px;
+      }
+
+      &-desc {
+        width: 100%;
+        text-align: center;
+        font-size: 1.15vw;
+        font-weight: 400;
+        opacity: 0.6;
+        color: $color-graybase;
+        @include media('>=split') {
+          font-size: 44px;
+        }
+      }
+
+      &-desc-v2 {
+        @extend .projects-slide-case-desc;
+        padding-bottom: 3vw;
+        @include media('>=split') {
+          padding-bottom: 116px;
+        }
+      }
+    }
+  }
+
+  //& MOBILE VIEW
+  &-mobile {
+    margin-top: 15.5vw;
+    @include media('>tablet', '<laptop') {
+      margin-top: 0px;
+    }
+
+    &-case {
+      width: 100vw;
+      @include displayCenter;
+      flex-direction: column;
+      margin-top: 24vw;
+      opacity: 0;
+      @include transformTranslate3D(0, 50%, 0);
+
+      @include media('>tablet', '<laptop') {
+        margin-top: 15.5vw;
+      }
+
+      &-image {
+        display: block;
+        position: relative;
+        width: 92vw;
+        height: 125vw;
+        @include media('>tablet', '<laptop') {
+          width: 95vw;
+          height: 75vw;
+        }
+      }
+
+      &-title {
+        font-size: 5.5vw;
+        font-weight: 600;
+        letter-spacing: -0.15vw;
+        color: $color-graybase;
+        padding-top: 5.5vw;
+        @include media('>tablet', '<laptop') {
+          font-size: 3.5vw;
+          padding-top: 3.5vw;
+        }
+      }
+
+      &-desc {
+        font-size: 4.5vw;
+        font-weight: 400;
+        opacity: 0.6;
+        color: $color-graybase;
+        text-align: center;
+        padding-top: 1.5vw;
+        width: 75%;
+        @include media('>tablet', '<laptop') {
+          font-size: 2.75vw;
+          padding-top: 1vw;
+          width: 85%;
+        }
+      }
+    }
+  }
+}
+
+.desktop {
+  @include media('<laptop') {
+    display: none;
+  }
+}
+.mobile {
+  @include media('>=laptop') {
+    display: none;
+  }
+}

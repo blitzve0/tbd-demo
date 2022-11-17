@@ -1,0 +1,92 @@
+//& Top-Level View
+.layout {
+  $root: &;
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+
+  @include displayCenter;
+
+  @include media('>=split') {
+    max-width: 3840px;
+  }
+}
+
+.backdrop {
+  @include absoluteZero;
+  top: -3vw !important;
+  width: 100vw;
+  height: auto;
+  object-fit: contain;
+}
+
+.modal1 {
+  position: relative;
+  width: 50vw;
+  height: 70vh;
+  background: $color-bg;
+  border-radius: 1.5vw;
+  z-index: 1;
+}
+
+.modal2 {
+  position: relative;
+  margin-top: 15vw;
+  width: 50vw;
+  height: 100vh;
+  background: #e8bfaf;
+  border-radius: 1.5vw;
+  z-index: 1;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 2vw;
+  padding-top: 1vw;
+  background: $color-bg;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.heading-big {
+  font-size: 3vw;
+  font-weight: 900;
+  padding-left: 3vw;
+  padding-top: 3vw;
+}
+
+.desc-small {
+  font-size: 1.15vw;
+  padding-left: 3vw;
+  width: 80%;
+  padding-top: 1.5vw;
+}
+
+.our-button {
+  width: 200px;
+  height: 30px;
+  font-weight: 600;
+  @include displayCenter;
+  line-height: 30px;
+  border-radius: 2.5vw;
+  background: #ee8155;
+}
+
+input {
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.5);
+    opacity: 1; /* Firefox */
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px;
+}
