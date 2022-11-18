@@ -260,9 +260,7 @@ select {
 
   &-select {
     width: 15.18vw;
-    height: 2.75vw;
-    padding-top: 0.75vw;
-    padding-bottom: 0.5vw;
+    height: 100%;
     padding-left: 1vw;
     padding-right: 0.75vw;
     background-color: white;
@@ -277,9 +275,7 @@ select {
 
     @include media('<=laptop') {
       width: 70vw;
-      height: 15vw;
-      padding-top: 0.625vw;
-      padding-bottom: 0.625vw;
+      height: 100%;
       padding-left: 3.5vw;
       padding-right: 0.75vw;
       border-radius: 1.5vw;
@@ -413,8 +409,6 @@ select {
   &-select {
     width: 21.875vw;
     height: 2.5vw;
-    padding-top: 0.75vw;
-    padding-bottom: 0.75vw;
     padding-left: 1vw;
     padding-right: 1vw;
     background-color: white;
@@ -428,9 +422,7 @@ select {
     justify-content: flex-start;
     @include media('<=laptop') {
       width: 70vw;
-      height: 15vw;
-      padding-top: 0.625vw;
-      padding-bottom: 0.625vw;
+      height: 100%;
       padding-left: 3.5vw;
       padding-right: 0.75vw;
       border-radius: 1.5vw;
