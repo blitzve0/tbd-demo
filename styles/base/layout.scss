@@ -8,17 +8,37 @@
 
   @include displayCenter;
 
+  @include media('<=laptop') {
+    align-items: flex-start;
+  }
+
   @include media('>=split') {
     max-width: 3840px;
   }
 }
 
+//& Page 1
 .backdrop {
   @include absoluteZero;
   top: -3vw !important;
   width: 100vw;
   height: auto;
   object-fit: contain;
+  @include media('<=laptop') {
+    display: none;
+  }
+}
+
+.backdrop-mobile {
+  @include absoluteZero;
+  @include media('<=laptop') {
+    width: 100vw;
+    height: auto;
+    object-fit: contain;
+  }
+  @include media('>laptop') {
+    display: none;
+  }
 }
 
 .modal1 {
@@ -28,16 +48,16 @@
   background: $color-bg;
   border-radius: 1.5vw;
   z-index: 1;
-}
+  @include media('<=laptop') {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
-.modal2 {
-  position: relative;
-  margin-top: 15vw;
-  width: 50vw;
-  height: 50vw;
-  background: #e8bfaf;
-  border-radius: 1.5vw;
-  z-index: 1;
+    width: 85vw;
+    height: 145vw;
+    border-radius: 3.5vw;
+  }
 }
 
 .close-button {
@@ -49,6 +69,10 @@
   background: $color-bg;
   border-radius: 50%;
   z-index: 2;
+  @include media('<=laptop') {
+    padding-right: 4vw;
+    padding-top: 4vw;
+  }
 }
 
 .heading-big {
@@ -56,6 +80,11 @@
   font-weight: 900;
   padding-left: 3vw;
   padding-top: 3vw;
+  @include media('<=laptop') {
+    font-size: 8.5vw;
+    padding-left: 0px;
+    padding-top: 10vw;
+  }
 }
 
 .desc-small {
@@ -63,6 +92,13 @@
   padding-left: 3vw;
   width: 80%;
   padding-top: 1.5vw;
+  @include media('<=laptop') {
+    font-size: 2.5vw;
+    padding-left: 0px;
+    width: 85%;
+    text-align: center;
+    padding-top: 3.5vw;
+  }
 }
 
 .our-button {
@@ -88,4 +124,471 @@ select {
   -moz-appearance: none;
   appearance: none;
   padding: 5px;
+}
+
+.selector {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.clicker {
+  $root: &;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vw;
+
+  &-button {
+    width: 10.3vw;
+    height: 2.06vw;
+    cursor: pointer;
+
+    @include media('<=laptop') {
+      width: 65vw;
+      height: 10vw;
+      margin-top: 15vw;
+    }
+  }
+
+  &-text {
+    width: 10.3vw;
+    height: 2.06vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-left: 2.56vw;
+    padding-right: 2.18vw;
+    background-color: rgba(238, 129, 85, 1);
+    border-radius: 22px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include media('<=laptop') {
+      width: 65vw;
+      height: 10vw;
+      justify-content: center;
+    }
+  }
+
+  &-label {
+    width: 5.75vw;
+    height: 0.875vw;
+    font-size: 1vw;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+
+    @include media('<=laptop') {
+      width: 25vw;
+      height: 3.5vw;
+      font-size: 4.5vw;
+    }
+  }
+
+  &-break {
+    width: 0.625vw;
+  }
+
+  &-arrow {
+    width: 0.5vw;
+    height: 0.5vw;
+
+    @include media('<=laptop') {
+      width: 2vw;
+      height: 2vw;
+    }
+  }
+}
+
+.drop {
+  $root: &;
+
+  padding-left: 3vw;
+  margin-top: 2vw;
+  position: relative;
+  width: 15.18vw;
+  height: 3.75vw;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  @include media('<=laptop') {
+    padding-left: 0px;
+    margin-top: 5vw;
+    width: 70vw;
+    height: 17vw;
+  }
+
+  &-label {
+    font-size: 1.125vw;
+    font-weight: 300;
+    color: black;
+    @include media('<=laptop') {
+      font-size: 4vw;
+    }
+  }
+
+  &-break {
+    height: 0.25vw;
+    @include media('<=laptop') {
+      height: 1vw;
+    }
+  }
+
+  &-icon {
+    width: 1vw;
+    height: 1vw;
+    border-radius: 0.5vw;
+    position: absolute;
+    right: -2vw;
+    top: 2.15vw;
+    pointer-events: none;
+    @include media('<=laptop') {
+      width: 4.5vw;
+      height: 4.5vw;
+      border-radius: 1.5vw;
+      right: 2vw;
+      top: 9vw;
+    }
+  }
+
+  &-select {
+    width: 15.18vw;
+    padding-top: 0.625vw;
+    padding-bottom: 0.625vw;
+    padding-left: 1vw;
+    padding-right: 0075vw;
+    background-color: white;
+    border-radius: 0.5vw;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media('<=laptop') {
+      width: 70vw;
+      height: 14vw;
+      padding-top: 0.625vw;
+      padding-bottom: 0.625vw;
+      padding-left: 3.5vw;
+      padding-right: 0.75vw;
+      border-radius: 1.5vw;
+    }
+  }
+}
+
+//& Page 2
+.modal2 {
+  $root: &;
+
+  position: relative;
+  margin-top: 15vw;
+  width: 50vw;
+  height: 50vw;
+  background: #e8bfaf;
+  border-radius: 1.5vw;
+  z-index: 1;
+
+  @include media('<=laptop') {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 85vw;
+    height: 325vw;
+    border-radius: 3.5vw;
+    margin-top: 35vw;
+  }
+
+  &-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    @include media('<=laptop') {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+  &-row1 {
+    display: flex;
+    flex-direction: column;
+    @include media('<=laptop') {
+      height: auto;
+    }
+  }
+}
+
+.clear-fields {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 2vw;
+  margin-top: -1.5vw;
+  @include media('<=laptop') {
+    margin: 0vw;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
+}
+
+.clear-text {
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 1.15vw;
+  @include media('<=laptop') {
+    font-size: 4.5vw;
+  }
+}
+
+.drop2 {
+  $root: &;
+
+  margin-top: 2vw;
+  position: relative;
+  width: 21.875vw;
+  height: 4.06vw;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  @include media('<=laptop') {
+    margin-top: 5vw;
+    width: 70vw;
+    height: 17vw;
+  }
+
+  &-label {
+    font-size: 1.125vw;
+    font-weight: 300;
+    color: black;
+
+    @include media('<=laptop') {
+      font-size: 3.5vw;
+    }
+  }
+
+  &-break {
+    height: 0.25vw;
+    @include media('<=laptop') {
+      height: 1vw;
+    }
+  }
+
+  &-icon {
+    width: 1vw;
+    height: 1vw;
+    border-radius: 0.5vw;
+    position: absolute;
+    right: 1vw;
+    top: 2.5vw;
+    pointer-events: none;
+    @include media('<=laptop') {
+      width: 4.5vw;
+      height: 4.5vw;
+      border-radius: 1.5vw;
+      right: 2vw;
+      top: 9vw;
+    }
+  }
+
+  &-select {
+    width: 21.875vw;
+    height: 2.5vw;
+    padding-top: 0.75vw;
+    padding-bottom: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: white;
+    border-radius: 0.5vw;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    @include media('<=laptop') {
+      width: 70vw;
+      height: 14vw;
+      padding-top: 0.625vw;
+      padding-bottom: 0.625vw;
+      padding-left: 3.5vw;
+      padding-right: 0.75vw;
+      border-radius: 1.5vw;
+    }
+  }
+}
+
+.textinput {
+  $root: &;
+
+  margin-top: 2vw;
+  position: relative;
+  width: 21.875vw;
+  height: 4.06vw;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  @include media('<=laptop') {
+    margin-top: 5vw;
+    width: 70vw;
+    height: 17vw;
+  }
+
+  &-label {
+    width: auto;
+    height: 0.97vw;
+    font-size: 1.125vw;
+    font-weight: 300;
+    color: rgba(50, 50, 77, 1);
+
+    @include media('<=laptop') {
+      font-size: 3.5vw;
+    }
+  }
+
+  &-break {
+    height: 0.58vw;
+    @include media('<=laptop') {
+      height: 1vw;
+    }
+  }
+
+  &-row {
+    width: 21.875vw;
+    height: 2.5vw;
+    padding-top: 0.75vw;
+    padding-bottom: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    background-color: white;
+    border-radius: 0.5vw;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    @include media('<=laptop') {
+      margin-top: 5vw;
+      width: 70vw;
+      height: 17vw;
+      border-radius: 1vw;
+    }
+  }
+
+  &-input {
+    width: 21.875vw;
+    height: 1.25vw;
+    font-size: 1vw;
+    color: rgba(0, 0, 0, 0.85);
+    border: none;
+
+    @include media('<=laptop') {
+      width: 70vw;
+      height: 100%;
+      font-size: 3.5vw;
+      padding-left: 2vw;
+    }
+  }
+}
+
+.button2 {
+  $root: &;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 2vw;
+  margin-right: 7vw;
+  @include media('<=laptop') {
+    margin-top: 10vw;
+    margin-right: 0px;
+  }
+
+  &-click {
+    width: 11.56vw;
+    height: 2.06vw;
+    cursor: pointer;
+
+    @include media('<=laptop') {
+      width: 40vw;
+      height: 10vw;
+    }
+  }
+
+  &-row {
+    width: 11.56vw;
+    height: 2.06vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-left: 2.56vw;
+    padding-right: 2.18vw;
+    background-color: #e8bfaf;
+    border-radius: 22px;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include media('<=laptop') {
+      width: 40vw;
+      height: 10vw;
+      justify-content: center;
+    }
+  }
+
+  &-label {
+    width: 11.56vw;
+    height: 0.875vw;
+    font-size: 1vw;
+    font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+
+    @include media('<=laptop') {
+      width: 20vw;
+      height: 3vw;
+      font-size: 3.5vw;
+    }
+  }
+
+  &-break {
+    height: 0.625vw;
+    @include media('<=laptop') {
+      height: 1vw;
+    }
+  }
+
+  &-icon {
+    width: 0.5vw;
+    height: 0.5vw;
+    @include media('<=laptop') {
+      width: 1.5vw;
+      height: 1.5vw;
+    }
+  }
 }
